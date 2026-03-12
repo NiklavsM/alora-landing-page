@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alora â Your Confidence Coach</title>
+  <meta name="description" content="Alora helps women feel calmer, clearer, and more self-respecting in relationships. Download the app today." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:     #FDF6EF;
+      --blush:     #F2DDD8;
+      --rose:      #C47B82;
+      --rose-dark: #A05A61;
+      --petal:     #EBC9C4;
+      --warm-dark: #2C1A1D;
+      --warm-mid:  #6B4047;
+      --text:      #3D2326;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ââ NAV ââ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.4rem 6vw;
+      backdrop-filter: blur(14px);
+      background: rgba(253, 246, 239, 0.82);
+      border-bottom: 1px solid rgba(196, 123, 130, 0.12);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.65rem; font-weight: 400; letter-spacing: 0.08em;
+      color: var(--rose-dark); text-decoration: none;
+    }
+    .nav-logo span { font-style: italic; }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: var(--rose); color: #fff;
+      padding: 0.55rem 1.4rem; border-radius: 100px;
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+      text-decoration: none; transition: background 0.25s, transform 0.2s;
+    }
+    .nav-cta:hover { background: var(--rose-dark); transform: translateY(-1px); }
+
+    /* ââ HERO ââ */
+    .hero {
+      min-height: 100svh;
+      display: grid; place-items: center;
+      padding: 8rem 6vw 4rem;
+      position: relative; overflow: hidden;
+      text-align: center;
+    }
+
+    /* Soft background blobs */
+    .hero::before, .hero::after {
+      content: ''; position: absolute; border-radius: 50%;
+      filter: blur(80px); pointer-events: none; z-index: 0;
+    }
+    .hero::before {
+      width: 55vw; height: 55vw; max-width: 700px; max-height: 700px;
+      background: radial-gradient(circle, rgba(235, 201, 196, 0.55) 0%, transparent 70%);
+      top: -10%; left: -10%;
+    }
+    .hero::after {
+      width: 45vw; height: 45vw; max-width: 580px; max-height: 580px;
+      background: radial-gradient(circle, rgba(196, 123, 130, 0.22) 0%, transparent 70%);
+      bottom: 5%; right: -5%;
+    }
+
+    .hero-inner { position: relative; z-index: 1; max-width: 760px; }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--rose); margin-bottom: 1.4rem;
+      padding: 0.35rem 1rem; border: 1px solid rgba(196,123,130,0.4); border-radius: 100px;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 8vw, 5.8rem);
+      font-weight: 300; line-height: 1.08; letter-spacing: -0.01em;
+      color: var(--warm-dark);
+      animation: fadeUp 0.9s 0.1s ease both;
+    }
+    .hero-title em { font-style: italic; color: var(--rose); }
+
+    .hero-sub {
+      margin: 1.6rem auto 2.8rem;
+      max-width: 480px;
+      font-size: 1.05rem; font-weight: 300; line-height: 1.7; color: var(--warm-mid);
+      animation: fadeUp 1s 0.2s ease both;
+    }
+
+    .hero-buttons {
+      display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;
+      animation: fadeUp 1s 0.35s ease both;
+    }
+
+    .btn-store {
+      display: flex; align-items: center; gap: 0.75rem;
+      background: var(--warm-dark); color: #FDF6EF;
+      padding: 0.85rem 1.8rem; border-radius: 14px;
+      text-decoration: none; transition: transform 0.2s, background 0.25s;
+    }
+    .btn-store:hover { background: #1a0d10; transform: translateY(-2px); }
+    .btn-store svg { flex-shrink: 0; }
+    .btn-store-text { display: flex; flex-direction: column; text-align: left; }
+    .btn-store-text small { font-size: 0.65rem; font-weight: 300; letter-spacing: 0.04em; opacity: 0.75; }
+    .btn-store-text strong { font-size: 0.95rem; font-weight: 500; letter-spacing: 0.02em; }
+
+    .hero-note {
+      margin-top: 2rem; font-size: 0.78rem; color: var(--warm-mid); opacity: 0.7;
+      animation: fadeUp 1s 0.5s ease both;
+    }
+
+    /* ââ SECTION SHARED ââ */
+    section { padding: 6rem 6vw; }
+    .section-label {
+      font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--rose); margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 300; line-height: 1.2;
+      color: var(--warm-dark);
+    }
+    .section-title em { font-style: italic; color: var(--rose); }
+
+    /* ââ FEATURES ââ */
+    .features { background: var(--blush); }
+    .features-header { text-align: center; margin-bottom: 4rem; }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem; max-width: 1100px; margin: 0 auto;
+    }
+
+    .feature-card {
+      background: rgba(253, 246, 239, 0.75); backdrop-filter: blur(8px);
+      border: 1px solid rgba(196,123,130,0.15);
+      border-radius: 20px; padding: 2rem 1.8rem;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(160, 90, 97, 0.12); }
+
+    .feature-icon {
+      width: 48px; height: 48px; border-radius: 14px;
+      background: linear-gradient(135deg, var(--petal), var(--rose));
+      display: grid; place-items: center; margin-bottom: 1.2rem; font-size: 1.3rem;
+    }
+    .feature-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem; font-weight: 500; margin-bottom: 0.6rem; color: var(--warm-dark);
+    }
+    .feature-card p { font-size: 0.88rem; font-weight: 300; line-height: 1.7; color: var(--warm-mid); }
+
+    /* ââ TESTIMONIALS ââ */
+    .testimonials { background: var(--cream); }
+    .testimonials-header { text-align: center; margin-bottom: 3.5rem; }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem; max-width: 1000px; margin: 0 auto;
+    }
+    .testimonial-card {
+      border: 1px solid rgba(196,123,130,0.2);
+      border-radius: 20px; padding: 2rem;
+      position: relative;
+    }
+    .testimonial-card::before {
+      content: '\201C';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem; color: var(--petal); line-height: 1;
+      position: absolute; top: 0.6rem; left: 1.4rem;
+    }
+    .testimonial-card p {
+      font-size: 0.9rem; line-height: 1.75; font-weight: 300;
+      color: var(--warm-mid); margin-bottom: 1.2rem; padding-top: 1.5rem;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
+    .author-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--petal), var(--rose));
+      display: grid; place-items: center; font-size: 0.75rem; color: #fff; font-weight: 500;
+    }
+    .author-info small { display: block; font-size: 0.72rem; color: var(--rose); font-weight: 400; }
+    .author-info strong { font-size: 0.85rem; font-weight: 500; color: var(--warm-dark); }
+    .stars { color: var(--rose); font-size: 0.75rem; margin-bottom: 0.3rem; }
+
+    /* ââ CTA BOTTOM ââ */
+    .cta-bottom {
+      background: linear-gradient(145deg, #2C1A1D 0%, #4A2830 100%);
+      color: #FDF6EF; text-align: center;
+      padding: 6rem 6vw;
+    }
+    .cta-bottom .section-label { color: var(--petal); }
+    .cta-bottom .section-title { color: #FDF6EF; margin-bottom: 1rem; }
+    .cta-bottom p {
+      font-size: 1rem; font-weight: 300; opacity: 0.75; margin-bottom: 2.5rem;
+      max-width: 440px; margin-left: auto; margin-right: auto; line-height: 1.7;
+    }
+
+    /* ââ FOOTER ââ */
+    footer {
+      background: #1a0d10; color: rgba(253,246,239,0.4);
+      text-align: center; padding: 2rem 6vw;
+      font-size: 0.75rem; font-weight: 300; letter-spacing: 0.04em;
+    }
+    footer a { color: rgba(253,246,239,0.5); text-decoration: none; margin: 0 0.6rem; }
+    footer a:hover { color: var(--petal); }
+
+    /* ââ ANIMATIONS ââ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ââ RESPONSIVE ââ */
+    @media (max-width: 600px) {
+      .btn-store { padding: 0.75rem 1.4rem; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#"><span>alora</span></a>
+    <a class="nav-cta" href="#download">Download Free</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="hero-eyebrow">Confidence &amp; Relationship Coaching</span>
+      <h1 class="hero-title">
+        Finally feel <em>at ease</em><br>in love and life
+      </h1>
+      <p class="hero-sub">
+        Alora is your personal coach for calmer, clearer, more self-respecting relationships. Built for women who are done second-guessing themselves.
+      </p>
+      <div class="hero-buttons" id="download">
+        <!-- Apple App Store -->
+        <a href="https://rejecto.onelink.me/2akO/yw5s2q3t" class="btn-store" aria-label="Download on the App Store">
+          <svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.05 13.77c-.03-3.16 2.58-4.68 2.7-4.76-1.47-2.16-3.76-2.45-4.57-2.48-1.94-.2-3.8 1.15-4.78 1.15-.99 0-2.51-1.13-4.13-1.1-2.12.03-4.08 1.24-5.17 3.13-2.22 3.85-.57 9.54 1.59 12.66 1.06 1.53 2.32 3.24 3.97 3.18 1.6-.07 2.2-1.03 4.13-1.03 1.93 0 2.48 1.03 4.16.99 1.72-.03 2.81-1.55 3.86-3.09a14.7 14.7 0 001.75-3.58c-.04-.02-3.47-1.33-3.51-5.07zM14.9 4.28C15.77 3.22 16.37 1.77 16.2.3c-1.27.06-2.83.86-3.74 1.9-.82.93-1.55 2.42-1.36 3.84 1.42.11 2.87-.72 3.8-1.76z" fill="currentColor"/>
+          </svg>
+          <div class="btn-store-text">
+            <small>Download on the</small>
+            <strong>App Store</strong>
+          </div>
+        </a>
+        <!-- Google Play -->
+        <a href="https://rejecto.onelink.me/2akO/yw5s2q3t" class="btn-store" aria-label="Get it on Google Play">
+          <svg width="22" height="24" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.22.62C.87.99.67 1.56.67 2.28v19.44c0 .72.2 1.29.55 1.66l.09.08 10.89-10.89v-.26L1.31.54l-.09.08z" fill="currentColor" opacity=".8"/>
+            <path d="M15.83 15.2l-3.63-3.63v-.26l3.63-3.63.08.05 4.3 2.44c1.23.7 1.23 1.84 0 2.54l-4.3 2.44-.08.05z" fill="currentColor"/>
+            <path d="M15.91 15.15L12.2 11.44 1.22 22.42c.4.43 1.07.48 1.82.05l12.87-7.32" fill="currentColor" opacity=".6"/>
+            <path d="M15.91 7.73L3.04.41C2.29-.02 1.62.03 1.22.46l10.98 10.98 3.71-3.71z" fill="currentColor" opacity=".4"/>
+          </svg>
+          <div class="btn-store-text">
+            <small>Get it on</small>
+            <strong>Google Play</strong>
+          </div>
+        </a>
+      </div>
+      <p class="hero-note">Free to download Â· 7-day free trial Â· No commitment</p>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="features-header reveal">
+      <p class="section-label">What Alora offers</p>
+      <h2 class="section-title">Everything you need to<br><em>trust yourself again</em></h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon">ð¸</div>
+        <h3>AI Relationship Coach</h3>
+        <p>Meet Maureen â your warm, emotionally intelligent guide available any time you need clarity, support, or a gentle reality check.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">ðª</div>
+        <h3>Courage Challenges</h3>
+        <p>Small, daily challenges designed to build confidence step by step. Real growth that sticks, not just motivation that fades.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">ð§</div>
+        <h3>Audio Activations</h3>
+        <p>Guided audio sessions to help you reset, re-centre, and reconnect with your own worth â anytime, anywhere.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">ð¤</div>
+        <h3>Community</h3>
+        <p>Connect with thousands of women on the same journey. Share wins, get support, and realise you are never alone in this.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">ð¡</div>
+        <h3>Relationship Guidance</h3>
+        <p>Evidence-based insights and practical tools to help you navigate dating, partnerships, and self-worth with clarity.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">â¨</div>
+        <h3>Progress Tracking</h3>
+        <p>Watch your confidence grow. Celebrate streaks, milestones, and the moments that show how far you have come.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="testimonials-header reveal">
+      <p class="section-label">Women are feeling it</p>
+      <h2 class="section-title">Stories that sound<br><em>familiar</em></h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="stars">âââââ</div>
+        <p>Such a great find! The challenges are fun and not too overwhelming. If you want to boost your confidence, definitely give this a try!</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">D</div>
+          <div class="author-info">
+            <strong>Dagnija</strong>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="stars">âââââ</div>
+        <p>Like a BFF in your pocket at all times, encouraging your growth and making you bolder. I love it!</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">I</div>
+          <div class="author-info">
+            <strong>Ienie</strong>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="stars">âââââ</div>
+        <p>As an introvert, I love that this app helps me get out of my comfort zone in a fun way. Feels like playing truth or dare but one that is meant for personal growth.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">YV</div>
+          <div class="author-info">
+            <strong>Yannemberg V.</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BOTTOM -->
+  <section class="cta-bottom">
+    <p class="section-label">Ready?</p>
+    <h2 class="section-title">Start your free<br><em>7-day trial today</em></h2>
+    <p>Join thousands of women building unshakeable confidence â one day at a time.</p>
+    <div class="hero-buttons" style="justify-content:center;">
+      <a href="https://rejecto.onelink.me/2akO/yw5s2q3t" class="btn-store" style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2);">
+        <svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18.05 13.77c-.03-3.16 2.58-4.68 2.7-4.76-1.47-2.16-3.76-2.45-4.57-2.48-1.94-.2-3.8 1.15-4.78 1.15-.99 0-2.51-1.13-4.13-1.1-2.12.03-4.08 1.24-5.17 3.13-2.22 3.85-.57 9.54 1.59 12.66 1.06 1.53 2.32 3.24 3.97 3.18 1.6-.07 2.2-1.03 4.13-1.03 1.93 0 2.48 1.03 4.16.99 1.72-.03 2.81-1.55 3.86-3.09a14.7 14.7 0 001.75-3.58c-.04-.02-3.47-1.33-3.51-5.07zM14.9 4.28C15.77 3.22 16.37 1.77 16.2.3c-1.27.06-2.83.86-3.74 1.9-.82.93-1.55 2.42-1.36 3.84 1.42.11 2.87-.72 3.8-1.76z" fill="currentColor"/>
+        </svg>
+        <div class="btn-store-text">
+          <small>Download on the</small>
+          <strong>App Store</strong>
+        </div>
+      </a>
+      <a href="https://rejecto.onelink.me/2akO/yw5s2q3t" class="btn-store" style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2);">
+        <svg width="22" height="24" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1.22.62C.87.99.67 1.56.67 2.28v19.44c0 .72.2 1.29.55 1.66l.09.08 10.89-10.89v-.26L1.31.54l-.09.08z" fill="currentColor" opacity=".8"/>
+          <path d="M15.83 15.2l-3.63-3.63v-.26l3.63-3.63.08.05 4.3 2.44c1.23.7 1.23 1.84 0 2.54l-4.3 2.44-.08.05z" fill="currentColor"/>
+          <path d="M15.91 15.15L12.2 11.44 1.22 22.42c.4.43 1.07.48 1.82.05l12.87-7.32" fill="currentColor" opacity=".6"/>
+          <path d="M15.91 7.73L3.04.41C2.29-.02 1.62.03 1.22.46l10.98 10.98 3.71-3.71z" fill="currentColor" opacity=".4"/>
+        </svg>
+        <div class="btn-store-text">
+          <small>Get it on</small>
+          <strong>Google Play</strong>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p style="margin-bottom:0.6rem;">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="mailto:hello@alora.love">hello@alora.love</a>
+    </p>
+    <p>Â© 2026 Better Apps Better You LTD. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          // Stagger cards within same parent
+          const siblings = e.target.parentElement.querySelectorAll('.reveal');
+          siblings.forEach((el, idx) => {
+            if (el === e.target) {
+              setTimeout(() => el.classList.add('visible'), idx * 80);
+            }
+          });
+          if (!e.target.classList.contains('visible')) {
+            e.target.classList.add('visible');
+          }
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
